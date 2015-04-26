@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vasu-sharma by vasusharma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Vasu-sharma</h1>
+      <h2 class="project-tagline">Slidify Project</h2>
+      <a href="https://github.com/vasusharma/Vasu-Sharma" class="btn">View on GitHub</a>
+      <a href="https://github.com/vasusharma/Vasu-Sharma/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/vasusharma/Vasu-Sharma/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <hr>
+
+<p>title: Product Pitch 
+subtitle: Coursera Developing Data Products Project
+author: Vasu Sharma
+job         : 
+logo        : project.jpg
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}</p>
+
+<h2>
+<a id="knit---------slidifyknit2slides" class="anchor" href="#knit---------slidifyknit2slides" aria-hidden="true"><span class="octicon octicon-link"></span></a>knit        : slidify::knit2slides</h2>
+
+<h2>
+<a id="car-stopping-distance-calculator" class="anchor" href="#car-stopping-distance-calculator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Car Stopping Distance Calculator</h2>
+
+<p>Hi, This is my first Shiny app and I am really excited to pitch it to the audience. It's a Car stopping distance calculator which calculates the distance after which a car stops (in feet) given it's speed in Miles per hour.</p>
+
+<p>--- .class #id </p>
+
+<h2>
+<a id="the-background-work-of-the-app" class="anchor" href="#the-background-work-of-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Background work of the app</h2>
+
+<ul>
+<li>The app fits a cubic ploynomial to the cars dataset in R and uses this fitted model to make predictions. </li>
+</ul>
+
+<p>-The decision to use cubic fit was arrived at after intensive experimentation with various different curve fits.</p>
+
+<p>-The app is very useful as it can predict when a car will stop given the speed it is going at. This if deployed in cars along with distance to an obstacle ahead can help drivers decide when to use the brakes so as to avoid collisions.</p>
+
+<p>--- .class #id </p>
+
+<h2>
+<a id="r-code" class="anchor" href="#r-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>R Code</h2>
+
+<p>The following R code was used to fit the data and make predictions. A code snippet doing the calculations is demonstarted.</p>
+
+<div class="highlight highlight-r"><pre>  library(<span class="pl-smi">datasets</span>)
+  <span class="pl-smi">SpeedOfCar</span><span class="pl-k">&lt;-</span><span class="pl-c1">43</span>
+  <span class="pl-smi">fm</span> <span class="pl-k">&lt;-</span> lm(<span class="pl-smi">dist</span> <span class="pl-k">~</span> poly(<span class="pl-smi">speed</span>, <span class="pl-c1">3</span>), <span class="pl-v">data</span> <span class="pl-k">=</span> <span class="pl-smi">cars</span>)
+  <span class="pl-smi">StopDist</span> <span class="pl-k">&lt;-</span> predict(<span class="pl-smi">fm</span>, <span class="pl-k">data.frame</span>(<span class="pl-v">speed</span> <span class="pl-k">=</span> <span class="pl-smi">SpeedOfCar</span>))
+  <span class="pl-smi">StopDist</span></pre></div>
+
+<p>--- .class #id </p>
+
+<h2>
+<a id="plot-of-fit" class="anchor" href="#plot-of-fit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plot of fit</h2>
+
+<div class="highlight highlight-r"><pre>library(<span class="pl-smi">datasets</span>)
+plot(<span class="pl-smi">cars</span>, <span class="pl-v">xlab</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Speed (mph)<span class="pl-pds">"</span></span>, <span class="pl-v">ylab</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Stopping distance (ft)<span class="pl-pds">"</span></span>,<span class="pl-v">las</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>, <span class="pl-v">xlim</span> <span class="pl-k">=</span> c(<span class="pl-c1">0</span>, <span class="pl-c1">25</span>))
+  <span class="pl-smi">d</span> <span class="pl-k">&lt;-</span> seq(<span class="pl-c1">0</span>, <span class="pl-c1">25</span>, <span class="pl-v">length.out</span> <span class="pl-k">=</span> <span class="pl-c1">200</span>)
+  lines(<span class="pl-smi">d</span>, predict(<span class="pl-smi">fm</span>, <span class="pl-k">data.frame</span>(<span class="pl-v">speed</span> <span class="pl-k">=</span> <span class="pl-smi">d</span>)))</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/vasusharma/Vasu-Sharma">Vasu-sharma</a> is maintained by <a href="https://github.com/vasusharma">vasusharma</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
